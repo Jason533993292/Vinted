@@ -144,6 +144,14 @@ async def serve_index():
     with open(index_path, "r", encoding="utf-8") as f:
         return f.read()
 
+@app.get("/logs", response_class=HTMLResponse)
+async def serve_logs():
+    logs_path = os.path.join(script_dir, "templates", "logs.html")
+    if not os.path.exists(logs_path):
+        raise HTTPException(status_code=404, detail="logs.html template not found")
+    with open(logs_path, "r", encoding="utf-8") as f:
+        return f.read()
+
 @app.get("/api/status")
 async def get_status():
     status = get_scraper_status()
