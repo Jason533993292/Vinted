@@ -168,6 +168,7 @@ async def get_status():
     return {
         "status": status,
         "pid": scraper_process.pid if scraper_process else None,
+        "model": OPENROUTER_MODEL,
         "metrics": {
             "accepted": accepted_count,
             "rejected": rejected_count,

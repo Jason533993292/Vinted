@@ -168,7 +168,7 @@
                     <div class="flex flex-col gap-4">
                         <div class="flex justify-between items-center py-2 border-b border-white/5 text-sm">
                             <span class="text-slate-400">Model Provider</span>
-                            <span class="font-medium text-slate-200">OpenRouter (Gemma 4 25B)</span>
+                            <span id="model-text" class="font-medium text-slate-200">Loading...</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-white/5 text-sm">
                             <span class="text-slate-400">Pricing Tier</span>
@@ -359,6 +359,7 @@
                 
                 state.status = data.status;
                 state.metrics = data.metrics;
+                state.model = data.model;
                 
                 updateStatusUI();
             } catch (err) {
@@ -377,6 +378,11 @@
             document.getElementById('stat-accepted').innerText = state.metrics.accepted;
             document.getElementById('stat-rejected').innerText = state.metrics.rejected;
             document.getElementById('stat-references').innerText = state.metrics.references;
+
+            const modelEl = document.getElementById('model-text');
+            if (modelEl) {
+                modelEl.innerText = state.model || 'OpenRouter';
+            }
 
             toggleBtn.disabled = false;
             
