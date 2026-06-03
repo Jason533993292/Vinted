@@ -1,0 +1,9 @@
+.env
+Accepted/
+Rejected/
+filtered_yupoo_images/
+__pycache__/
+*.log
+.DS_Store
+env/
+venv/
