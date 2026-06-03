@@ -17,7 +17,7 @@ load_dotenv(dotenv_path)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-3.5-flash")
 
 if not OPENROUTER_API_KEY:
     raise RuntimeError("OPENROUTER_API_KEY not found in environment. Please add it to .env file.")

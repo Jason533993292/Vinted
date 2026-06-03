@@ -16,7 +16,7 @@ script_dir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(script_dir, ".env"))
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-3.5-flash")
 
 if not OPENROUTER_API_KEY:
     raise SystemExit("❌ No OPENROUTER_API_KEY found in .env")
