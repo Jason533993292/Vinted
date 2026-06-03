@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from playwright.async_api import async_playwright
 import os
 import aiohttp
@@ -662,7 +663,9 @@ async def analyze_and_save_image(
 
 async def run(playwright) -> None:
     print("Launching browser...")
-    browser = await playwright.chromium.launch(headless=False)
+    is_mac = sys.platform == "darwin"
+    is_headless = os.getenv("HEADLESS", str(not is_mac)).lower() == "true"
+    browser = await playwright.chromium.launch(headless=is_headless)
     context = await browser.new_context()
     page = await context.new_page()
 
