@@ -22,7 +22,7 @@ dotenv_path = os.path.join(root_dir, ".env")
 load_dotenv(dotenv_path)
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemma-4-26b-a4b-it:free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash")
 
 app = FastAPI(title="Yupoo Resell Scraper Dashboard")
 
